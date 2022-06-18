@@ -101,7 +101,7 @@ def main():
 
     # prepare data
     crop_size = (config.TRAIN.IMAGE_SIZE[1], config.TRAIN.IMAGE_SIZE[0])
-    train_dataset = eval('datasets.'+config.DATASET.DATASET)(
+    train_dataset = eval('datasets.cityscapes')(
                         root=config.DATASET.ROOT,
                         list_path=config.DATASET.TRAIN_SET,
                         num_samples=None,
@@ -129,7 +129,7 @@ def main():
         sampler=train_sampler)
 
     if config.DATASET.EXTRA_TRAIN_SET:
-        extra_train_dataset = eval('datasets.'+config.DATASET.DATASET)(
+        extra_train_dataset = eval('datasets.cityscapes')(
                     root=config.DATASET.ROOT,
                     list_path=config.DATASET.EXTRA_TRAIN_SET,
                     num_samples=None,
@@ -157,7 +157,7 @@ def main():
             sampler=extra_train_sampler)
 
     test_size = (config.TEST.IMAGE_SIZE[1], config.TEST.IMAGE_SIZE[0])
-    test_dataset = eval('datasets.'+config.DATASET.DATASET)(
+    test_dataset = eval('datasets.cityscapes')(
                         root=config.DATASET.ROOT,
                         list_path=config.DATASET.TEST_SET,
                         num_samples=config.TEST.NUM_SAMPLES,
